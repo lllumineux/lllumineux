@@ -1,0 +1,40 @@
+/*-------------------- Specification --------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,500');
+
+html, body {
+	padding: 0!important;
+	margin: 0!important;
+	width: 100vw!important;
+	height: auto;
+	overflow-x: hidden;
+}
+
+header, main, footer, section, nav {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, i, b {
+	cursor: default;
+}
+
+h1, h2, h3, h4, h5, h6, p, i, b, a, textarea, input, button {
+	padding: 0;
+	margin: 0;
+	text-decoration: none!important;
+	outline: none;
+}
+
+a:hover, textarea:hover, input:hover, button:hover {
+	text-decoration: none!important;
+}
+
+textarea:focus, input:focus, button:focus {
+	outline: none;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif!important;
+}
