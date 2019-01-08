@@ -15,9 +15,9 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
-	<section class="index-section first-section">
-		<div class="h-25 first-section__element"></div>
-		<div class="h-50 d-flex justify-content-center align-items-center first-section__element">
+	<section class="index-section start-section">
+		<div class="h-25 start-section__element"></div>
+		<div class="h-50 d-flex justify-content-center align-items-center start-section__element">
 			<header class="index-header">
 				<h1 class="site-name">lllumineux</h1>
 				<nav class="d-flex justify-content-around index-nav">
@@ -25,11 +25,74 @@
 				</nav>
 			</header>
 		</div>
-		<div class="h-25 d-flex align-items-end first-section__element">
+		<div class="h-25 d-flex align-items-end start-section__element">
 			<img id="waves" src="img/index/waves.png">
 		</div>
 	</section>
-	<section class="index-section second-section">
+	<section class="container-fluid index-section settings-section">
+		<div class="row h-100 w-100 justify-content-center align-items-center bg-preview">
+			<div class="row w-100 justify-content-center bg-preview__element">
+				<div class="d-flex align-items-center preview-gallery" id="bg-gallery">
+					<div class="bg-gallery__element">
+						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+					</div>
+					<div class="bg-gallery__element">
+						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+					</div>
+					<div class="bg-gallery__element">
+						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+					</div>
+					<div class="bg-gallery__element">
+						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+					</div>
+					<div class="bg-gallery__element">
+						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+					</div>
+					<div class="bg-gallery__element">
+						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+					</div>
+					<div class="bg-gallery__element">
+						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+					</div>
+					<div class="bg-gallery__element">
+						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+					</div>
+					<div class="bg-gallery__element">
+						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+					</div>
+					<div class="bg-gallery__element">
+						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+					</div>
+				</div>
+				<div class="row w-100 flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center preview-settings">
+					<div class="d-flex flex-column justify-content-center" id="bg-settings">
+						<div class="h-75 d-flex flex-column justify-content-between align-items-center bg-settings__content">
+							<div class="w-100 d-flex justify-content-around align-items-center bg-setting">
+								<input type="range">
+								<a href="#"><img src="img/index/reset.png"></a>
+							</div>
+							<div class="w-100 d-flex justify-content-around align-items-center bg-setting">
+								<input type="range">
+								<a href="#"><img src="img/index/reset.png"></a>
+							</div>
+							<div class="w-100 d-flex justify-content-around align-items-center bg-setting">
+								<input type="range">
+								<a href="#"><img src="img/index/reset.png"></a>
+							</div>
+							<div class="w-100 d-flex justify-content-around align-items-center bg-setting">
+								<input type="range">
+								<a href="#"><img src="img/index/reset.png"></a>
+							</div>
+						</div>
+					</div>
+					<div class="d-flex align-items-center preview-content" id="bg-picture">
+						<canvas id="bg-picture__content" width="1000px" height="1000px"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
+
+	<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
