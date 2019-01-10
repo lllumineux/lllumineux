@@ -8,8 +8,8 @@
 	<title>lllumineux</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -34,65 +34,217 @@
 			<div class="row w-100 justify-content-center bg-preview__element">
 				<div class="d-flex align-items-center preview-gallery" id="bg-gallery">
 					<div class="bg-gallery__element">
-						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
 					</div>
 					<div class="bg-gallery__element">
-						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
 					</div>
 					<div class="bg-gallery__element">
-						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
 					</div>
 					<div class="bg-gallery__element">
-						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
 					</div>
 					<div class="bg-gallery__element">
-						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
 					</div>
 					<div class="bg-gallery__element">
-						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
 					</div>
 					<div class="bg-gallery__element">
-						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
 					</div>
 					<div class="bg-gallery__element">
-						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
 					</div>
 					<div class="bg-gallery__element">
-						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
 					</div>
 					<div class="bg-gallery__element">
-						<a href="#"><img src="img/index/bg_preview/test.png"></a>
+						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
 					</div>
 				</div>
 				<div class="row w-100 flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center preview-settings">
 					<div class="d-flex flex-column justify-content-center" id="bg-settings">
-						<div class="h-75 d-flex flex-column justify-content-between align-items-center bg-settings__content">
+						<div class="h-75 d-flex flex-column justify-content-around align-items-center bg-settings__content">
 							<div class="w-100 d-flex justify-content-around align-items-center bg-setting">
-								<input type="range">
+								<input type="range" min="-180" max="180" value="0">
+								<p class="value_shower">0</p>
 								<a href="#"><img src="img/index/reset.png"></a>
 							</div>
 							<div class="w-100 d-flex justify-content-around align-items-center bg-setting">
-								<input type="range">
+								<input type="range" min="-180" max="180" value="0">
+								<p class="value_shower">0</p>
 								<a href="#"><img src="img/index/reset.png"></a>
 							</div>
 							<div class="w-100 d-flex justify-content-around align-items-center bg-setting">
-								<input type="range">
+								<input type="range" min="-180" max="180" value="0">
+								<p class="value_shower">0</p>
 								<a href="#"><img src="img/index/reset.png"></a>
 							</div>
 							<div class="w-100 d-flex justify-content-around align-items-center bg-setting">
-								<input type="range">
+								<input type="range" min="-180" max="180" value="0">
+								<p class="value_shower">0</p>
 								<a href="#"><img src="img/index/reset.png"></a>
 							</div>
 						</div>
 					</div>
 					<div class="d-flex align-items-center preview-content" id="bg-picture">
-						<canvas id="bg-picture__content" width="1000px" height="1000px"></canvas>
+						<div class="bg-picture__content">
+							<div class="bg-canvases">
+								<canvas class="bg-canvases__element" id="first-bg-layer" width="1000px" height="1000px"></canvas>
+								<canvas class="bg-canvases__element" id="second-bg-layer" width="1000px" height="1000px"></canvas>
+								<canvas class="bg-canvases__element" id="third-bg-layer" width="1000px" height="1000px"></canvas>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
+	<section class="container-fluid index-section settings-section">
+		<div class="row h-100 w-100 justify-content-center align-items-center font-preview">
+			<div class="row w-100 justify-content-center font-preview__element">
+				<div class="d-flex align-items-center preview-gallery" id="font-gallery">
+					<div class="font-gallery__element">
+						<a href="#"><img src="templates/fonts/0/preview.png"></a>
+					</div>
+					<div class="font-gallery__element">
+						<a href="#"><img src="templates/fonts/0/preview.png"></a>
+					</div>
+					<div class="font-gallery__element">
+						<a href="#"><img src="templates/fonts/0/preview.png"></a>
+					</div>
+					<div class="font-gallery__element">
+						<a href="#"><img src="templates/fonts/0/preview.png"></a>
+					</div>
+					<div class="font-gallery__element">
+						<a href="#"><img src="templates/fonts/0/preview.png"></a>
+					</div>
+					<div class="font-gallery__element">
+						<a href="#"><img src="templates/fonts/0/preview.png"></a>
+					</div>
+					<div class="font-gallery__element">
+						<a href="#"><img src="templates/fonts/0/preview.png"></a>
+					</div>
+					<div class="font-gallery__element">
+						<a href="#"><img src="templates/fonts/0/preview.png"></a>
+					</div>
+					<div class="font-gallery__element">
+						<a href="#"><img src="templates/fonts/0/preview.png"></a>
+					</div>
+					<div class="font-gallery__element">
+						<a href="#"><img src="templates/fonts/0/preview.png"></a>
+					</div>
+				</div>
+				<div class="row w-100 flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center preview-settings">
+					<div class="d-flex flex-column justify-content-center" id="font-settings">
+						<div class="h-75 fluid-container d-flex flex-column justify-content-around align-items-center font-settings__content">
+							<div class="row">
+								<div class="col-6 d-flex justify-content-center">
+									<a href="#">Цвет текста</a>
+								</div>
+								<div class="col-6">
+									<input type="text" placeholder="#fff">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-6 d-flex justify-content-center">
+									<a href="#">Прозрачность</a>
+								</div>
+								<div class="col-6 container-fluid">
+									<div class="row">
+										<div class="col-10 d-flex align-items-center">
+											<input type="range" min="0" max="100" value="100">
+										</div>
+										<div class="col-2 d-flex align-items-center">
+											<p>100</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row d-flex justify-content-center">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+					<div class="d-flex align-items-center preview-content" id="font-picture">
+						<div class="font-picture__content">
+							<div class="font-canvases">
+								<canvas class="font-canvases__element" id="font-layer" width="1000px" height="1000px"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container-fluid index-section settings-section">
+		<div class="row h-100 w-100 justify-content-center align-items-center filter-preview">
+			<div class="row w-100 justify-content-center filter-preview__element">
+				<div class="d-flex align-items-center preview-gallery" id="filter-gallery">
+					<div class="filter-gallery__element">
+						<a href="#"><img src="templates/filters/0/preview.png"></a>
+					</div>
+					<div class="filter-gallery__element">
+						<a href="#"><img src="templates/filters/0/preview.png"></a>
+					</div>
+					<div class="filter-gallery__element">
+						<a href="#"><img src="templates/filters/0/preview.png"></a>
+					</div>
+					<div class="filter-gallery__element">
+						<a href="#"><img src="templates/filters/0/preview.png"></a>
+					</div>
+					<div class="filter-gallery__element">
+						<a href="#"><img src="templates/filters/0/preview.png"></a>
+					</div>
+					<div class="filter-gallery__element">
+						<a href="#"><img src="templates/filters/0/preview.png"></a>
+					</div>
+					<div class="filter-gallery__element">
+						<a href="#"><img src="templates/filters/0/preview.png"></a>
+					</div>
+					<div class="filter-gallery__element">
+						<a href="#"><img src="templates/filters/0/preview.png"></a>
+					</div>
+					<div class="filter-gallery__element">
+						<a href="#"><img src="templates/filters/0/preview.png"></a>
+					</div>
+					<div class="filter-gallery__element">
+						<a href="#"><img src="templates/filters/0/preview.png"></a>
+					</div>
+				</div>
+				<div class="row w-100 flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center preview-settings">
+					<div class="d-flex flex-column justify-content-center" id="filter-settings">
+						<div class="h-75 d-flex flex-column justify-content-around align-items-center filter-settings__content">
+							<div class="w-100 d-flex justify-content-around align-items-center filter-setting">
+								<input type="range" min="0" max="100" value="100">
+								<p class="value_shower">0</p>
+								<a href="#"><img src="img/index/reset.png"></a>
+							</div>
+							<div class="w-100 d-flex justify-content-around align-items-center filter-setting">
+								<input type="range" min="0" max="100" value="100">
+								<p class="value_shower">0</p>
+								<a href="#"><img src="img/index/reset.png"></a>
+							</div>
+							<div class="w-100 d-flex justify-content-around align-items-center filter-setting">
+								<input type="range" min="0" max="100" value="100">
+								<p class="value_shower">0</p>
+								<a href="#"><img src="img/index/reset.png"></a>
+							</div>
+						</div>
+					</div>
+					<div class="d-flex align-items-center preview-content" id="filter-picture">
+						<div class="filter-picture__content">
+							<div class="filter-canvases">
+								<canvas class="filter-canvases__element" id="filter-layer" width="1000px" height="1000px"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 	<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
