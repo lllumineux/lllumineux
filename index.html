@@ -34,56 +34,32 @@
 			<div class="row w-100 justify-content-center bg-preview__element">
 				<div class="d-flex align-items-center preview-gallery" id="bg-gallery">
 					<div class="bg-gallery__element">
-						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
+						<a href="javascript:void(0);" onclick="backgroundID = '0';changeBackgroundID();"><img src="templates/backgrounds/0/preview.png"></a>
 					</div>
 					<div class="bg-gallery__element">
-						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
-					</div>
-					<div class="bg-gallery__element">
-						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
-					</div>
-					<div class="bg-gallery__element">
-						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
-					</div>
-					<div class="bg-gallery__element">
-						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
-					</div>
-					<div class="bg-gallery__element">
-						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
-					</div>
-					<div class="bg-gallery__element">
-						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
-					</div>
-					<div class="bg-gallery__element">
-						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
-					</div>
-					<div class="bg-gallery__element">
-						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
-					</div>
-					<div class="bg-gallery__element">
-						<a href="#"><img src="templates/backgrounds/0/preview.png"></a>
+						<a href="javascript:void(0);" onclick="backgroundID = '1';changeBackgroundID();"><img src="templates/backgrounds/1/preview.png"></a>
 					</div>
 				</div>
 				<div class="row w-100 flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center preview-settings">
 					<div class="d-flex flex-column justify-content-center" id="bg-settings">
 						<div class="h-75 d-flex flex-column justify-content-around align-items-center bg-settings__content">
 							<div class="w-100 d-flex justify-content-around align-items-center bg-setting">
-								<input type="range" min="-180" max="180" value="0">
+								<input type="range" id="fbl-hue" onmousemove="updateBackground(this);" min="-180" max="180" value="0">
 								<p class="value_shower">0</p>
 								<a href="#"><img src="img/index/reset.png"></a>
 							</div>
 							<div class="w-100 d-flex justify-content-around align-items-center bg-setting">
-								<input type="range" min="-180" max="180" value="0">
+								<input type="range" id="sbl-hue" onmousemove="updateBackground(this);" min="-180" max="180" value="0">
 								<p class="value_shower">0</p>
 								<a href="#"><img src="img/index/reset.png"></a>
 							</div>
 							<div class="w-100 d-flex justify-content-around align-items-center bg-setting">
-								<input type="range" min="-180" max="180" value="0">
+								<input type="range" id="tbl-hue" onmousemove="updateBackground(this);" min="-180" max="180" value="0">
 								<p class="value_shower">0</p>
 								<a href="#"><img src="img/index/reset.png"></a>
 							</div>
 							<div class="w-100 d-flex justify-content-around align-items-center bg-setting">
-								<input type="range" min="-180" max="180" value="0">
+								<input type="range" id="abl-brightness" onmousemove="updateBackground(this);" min="0" max="1000" value="100">
 								<p class="value_shower">0</p>
 								<a href="#"><img src="img/index/reset.png"></a>
 							</div>
@@ -92,9 +68,9 @@
 					<div class="d-flex align-items-center preview-content" id="bg-picture">
 						<div class="bg-picture__content">
 							<div class="bg-canvases">
-								<canvas class="bg-canvases__element" id="first-bg-layer" width="1000px" height="1000px"></canvas>
-								<canvas class="bg-canvases__element" id="second-bg-layer" width="1000px" height="1000px"></canvas>
-								<canvas class="bg-canvases__element" id="third-bg-layer" width="1000px" height="1000px"></canvas>
+								<canvas class="bg-canvases__element" id="fbl" width="1000px" height="1000px"></canvas>
+								<canvas class="bg-canvases__element" id="sbl" width="1000px" height="1000px"></canvas>
+								<canvas class="bg-canvases__element" id="tbl" width="1000px" height="1000px"></canvas>
 							</div>
 						</div>
 					</div>
@@ -107,34 +83,7 @@
 			<div class="row w-100 justify-content-center font-preview__element">
 				<div class="d-flex align-items-center preview-gallery" id="font-gallery">
 					<div class="font-gallery__element">
-						<a href="#"><img src="templates/fonts/0/preview.png"></a>
-					</div>
-					<div class="font-gallery__element">
-						<a href="#"><img src="templates/fonts/0/preview.png"></a>
-					</div>
-					<div class="font-gallery__element">
-						<a href="#"><img src="templates/fonts/0/preview.png"></a>
-					</div>
-					<div class="font-gallery__element">
-						<a href="#"><img src="templates/fonts/0/preview.png"></a>
-					</div>
-					<div class="font-gallery__element">
-						<a href="#"><img src="templates/fonts/0/preview.png"></a>
-					</div>
-					<div class="font-gallery__element">
-						<a href="#"><img src="templates/fonts/0/preview.png"></a>
-					</div>
-					<div class="font-gallery__element">
-						<a href="#"><img src="templates/fonts/0/preview.png"></a>
-					</div>
-					<div class="font-gallery__element">
-						<a href="#"><img src="templates/fonts/0/preview.png"></a>
-					</div>
-					<div class="font-gallery__element">
-						<a href="#"><img src="templates/fonts/0/preview.png"></a>
-					</div>
-					<div class="font-gallery__element">
-						<a href="#"><img src="templates/fonts/0/preview.png"></a>
+						<a href="javascript:void(0);" onclick="fontID = 'zero';updateFont();"><img src="templates/fonts/0/preview.png"></a>
 					</div>
 				</div>
 				<div class="row w-100 flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center preview-settings">
@@ -145,7 +94,7 @@
 									<a href="#">Цвет текста</a>
 								</div>
 								<div class="col-6">
-									<input type="text" placeholder="#fff">
+									<input type="text" placeholder="#fff" id="fntl-color" onkeyup="updateFont();">
 								</div>
 							</div>
 							<div class="row">
@@ -153,25 +102,29 @@
 									<a href="#">Прозрачность</a>
 								</div>
 								<div class="col-6 container-fluid">
-									<div class="row">
-										<div class="col-10 d-flex align-items-center">
-											<input type="range" min="0" max="100" value="100">
-										</div>
-										<div class="col-2 d-flex align-items-center">
-											<p>100</p>
-										</div>
-									</div>
+									<input type="range" onmousemove="updateFont();" id="fntl-opacity" min="0" max="100" value="100">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-6 d-flex justify-content-center">
+									<a href="#">Тень</a>
+								</div>
+								<div class="col-6 container-fluid">
+									<input type="text" id="fntl-shadow-x" onkeyup="updateFont();">
+									<input type="text" id="fntl-shadow-y" onkeyup="updateFont();">
+									<input type="text" id="fntl-shadow-radius" onkeyup="updateFont();">
+									<input type="text" id="fntl-shadow-opacity" onkeyup="updateFont();">
 								</div>
 							</div>
 							<div class="row d-flex justify-content-center">
-								<input type="text">
+								<input type="text" id="fntl-text" onkeyup="updateFont();">
 							</div>
 						</div>
 					</div>
 					<div class="d-flex align-items-center preview-content" id="font-picture">
 						<div class="font-picture__content">
 							<div class="font-canvases">
-								<canvas class="font-canvases__element" id="font-layer" width="1000px" height="1000px"></canvas>
+								<canvas class="font-canvases__element" id="fntl" width="1000px" height="1000px"></canvas>
 							</div>
 						</div>
 					</div>
@@ -184,51 +137,24 @@
 			<div class="row w-100 justify-content-center filter-preview__element">
 				<div class="d-flex align-items-center preview-gallery" id="filter-gallery">
 					<div class="filter-gallery__element">
-						<a href="#"><img src="templates/filters/0/preview.png"></a>
-					</div>
-					<div class="filter-gallery__element">
-						<a href="#"><img src="templates/filters/0/preview.png"></a>
-					</div>
-					<div class="filter-gallery__element">
-						<a href="#"><img src="templates/filters/0/preview.png"></a>
-					</div>
-					<div class="filter-gallery__element">
-						<a href="#"><img src="templates/filters/0/preview.png"></a>
-					</div>
-					<div class="filter-gallery__element">
-						<a href="#"><img src="templates/filters/0/preview.png"></a>
-					</div>
-					<div class="filter-gallery__element">
-						<a href="#"><img src="templates/filters/0/preview.png"></a>
-					</div>
-					<div class="filter-gallery__element">
-						<a href="#"><img src="templates/filters/0/preview.png"></a>
-					</div>
-					<div class="filter-gallery__element">
-						<a href="#"><img src="templates/filters/0/preview.png"></a>
-					</div>
-					<div class="filter-gallery__element">
-						<a href="#"><img src="templates/filters/0/preview.png"></a>
-					</div>
-					<div class="filter-gallery__element">
-						<a href="#"><img src="templates/filters/0/preview.png"></a>
+						<a href="javascript:void(0);" onclick="filterID = '0';changeFilterID();"><img src="templates/filters/0/preview.png"></a>
 					</div>
 				</div>
 				<div class="row w-100 flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center preview-settings">
 					<div class="d-flex flex-column justify-content-center" id="filter-settings">
 						<div class="h-75 d-flex flex-column justify-content-around align-items-center filter-settings__content">
 							<div class="w-100 d-flex justify-content-around align-items-center filter-setting">
-								<input type="range" min="0" max="100" value="100">
+								<input type="range" id="fltrl-hue" onmousemove="updateFilter();" min="-180" max="180" value="0">
 								<p class="value_shower">0</p>
 								<a href="#"><img src="img/index/reset.png"></a>
 							</div>
 							<div class="w-100 d-flex justify-content-around align-items-center filter-setting">
-								<input type="range" min="0" max="100" value="100">
+								<input type="range" id="fltrl-brightness" onmousemove="updateFilter();" min="0" max="1000" value="100">
 								<p class="value_shower">0</p>
 								<a href="#"><img src="img/index/reset.png"></a>
 							</div>
 							<div class="w-100 d-flex justify-content-around align-items-center filter-setting">
-								<input type="range" min="0" max="100" value="100">
+								<input type="range" id="fltrl-opacity" onmousemove="updateFilter();" min="0" max="100" value="100">
 								<p class="value_shower">0</p>
 								<a href="#"><img src="img/index/reset.png"></a>
 							</div>
@@ -237,7 +163,7 @@
 					<div class="d-flex align-items-center preview-content" id="filter-picture">
 						<div class="filter-picture__content">
 							<div class="filter-canvases">
-								<canvas class="filter-canvases__element" id="filter-layer" width="1000px" height="1000px"></canvas>
+								<canvas class="filter-canvases__element" id="fltrl" width="1000px" height="1000px"></canvas>
 							</div>
 						</div>
 					</div>
@@ -245,6 +171,7 @@
 			</div>
 		</div>
 	</section>
+	<link rel="stylesheet" type="text/css" href="templates/fonts/fonts.css">
 	<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

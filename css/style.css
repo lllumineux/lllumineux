@@ -298,3 +298,6 @@ input[type=range]:focus::-ms-fill-upper {
   background: #fff;
 }
 
+.bg-canvases, .font-canvases, .filter-canvases {
+	background: #f3f3f3;
+}
