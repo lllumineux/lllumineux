@@ -2,6 +2,7 @@
 c - canvas
 ctx - canvas's context
 img - image for canvas
+res - image made from canvas
 
 abl - all background layers
 fbl - first background layer
@@ -9,14 +10,8 @@ sbl - second background layer
 tbl - third background layer
 fntl - font layer
 fltrl - filter layer
+res - all canvases in one
 */
-
-var maxWidth = 500;
-var maxHeight = 500;
-var maxSize = 500;
-var backgroundID = ''
-var filterID = ''
-var fontID = ''
 
 /* Choice of background template */
 const fbl_c = $('#fbl')[0];
@@ -76,13 +71,14 @@ function updateBackground(obj){
 			};
 		};
 	};
+	updateValueShower(obj.id);
 };
 
 function updateBackgroundLayer(canvasID){
 	hueRotate = $('#' + canvasID + '-hue')[0].value;
 	brightness = $('#abl-brightness')[0].value;
 
-	eval(canvasID + '_ctx').filter = "hue-rotate(" + hueRotate + "deg)" + "brightness(" + brightness + "%)";
+	eval(canvasID + '_ctx').filter = 'hue-rotate(' + hueRotate + 'deg)' + 'brightness(' + brightness + '%)';
 	eval(canvasID + '_ctx').clearRect(0, 0, eval(canvasID + '_c').width, eval(canvasID + '_c').height);
 	eval(canvasID + '_ctx').drawImage(eval(canvasID + '_img'), 0, 0);
 };
@@ -154,8 +150,74 @@ function updateFilter(){
 	brightness = $('#fltrl-brightness')[0].value;
 	opacity = $('#fltrl-opacity')[0].value;
 	if (fltrl_ctx){
-		fltrl_ctx.filter = "hue-rotate(" + hueRotate + "deg)" + "brightness(" + brightness + "%)" + "opacity(" + opacity + "%)";
+		fltrl_ctx.filter = 'hue-rotate(' + hueRotate + 'deg)' + 'brightness(' + brightness + '%)' + 'opacity(' + opacity + '%)';
 		fltrl_ctx.clearRect(0, 0, fltrl_c.width, fltrl_c.height);
 		fltrl_ctx.drawImage(fltrl_img, 0, 0);
-	}
+	};
+	updateValueShower('fltrl-hue');
+	updateValueShower('fltrl-brightness');
+	updateValueShower('fltrl-opacity');
+};
+
+/* Saving result */
+const res_c = document.createElement('canvas');
+res_c.setAttribute('width', '1000px');
+res_c.setAttribute('height', '1000px');
+const res_ctx = res_c.getContext('2d');
+const res_img = new Image();
+
+function saveCurrentPicture() {
+	res_ctx.clearRect(0, 0, res_c.width, res_c.height);
+	fbl_res = getImage(fbl_c);
+	fbl_res.addEventListener('load', () => {
+		res_ctx.drawImage(fbl_res, 0, 0);
+
+		sbl_res = getImage(sbl_c);
+		sbl_res.addEventListener('load', () => {
+			res_ctx.drawImage(sbl_res, 0, 0);
+
+			tbl_res = getImage(tbl_c);
+			tbl_res.addEventListener('load', () => {
+				res_ctx.drawImage(tbl_res, 0, 0);
+
+				fntl_res = getImage(fntl_c);
+				fntl_res.addEventListener('load', () => {
+					res_ctx.drawImage(fntl_res, 0, 0);
+
+
+					fltrl_res = getImage(fltrl_c);
+					fltrl_res.addEventListener('load', () => {
+						res_ctx.drawImage(fltrl_res, 0, 0);
+
+						downloadImage = getImage(res_c);
+						downloadImage.addEventListener('load', () => {
+							link = document.createElement('a');
+							link.setAttribute('href', downloadImage.src);
+							link.setAttribute('download', 'lllumineux');
+							link.click();
+						});
+					});
+				});
+			});
+		});
+	});
+	
+};
+
+function getImage(canvas) {
+  imageData = canvas.toDataURL();
+  image = new Image();
+  image.src = imageData;
+  return image;
+};
+
+/* Reset buttons */
+function resetValue(obj){
+	$('#' + obj.id.replace('-reset', ''))[0].value = $('#' + obj.id.replace('-reset', ''))[0].getAttribute('data-default-value');
+	eval($('#' + obj.id.replace('-reset', ''))[0].getAttribute('onmousemove').replace('this', '$("#" + obj.id.replace("-reset", ""))[0]'));
+};
+
+/* Value showers */
+function updateValueShower(name){
+	$('#' + name + '-shower')[0].innerHTML = $('#' + name)[0].value;
 };
