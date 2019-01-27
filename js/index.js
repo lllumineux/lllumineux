@@ -13,7 +13,7 @@ fltrl - filter layer
 res - all canvases in one
 */
 
-/* Choice of background template */
+// Choice of background template 
 const fbl_c = $('#fbl')[0];
 const fbl_ctx = fbl_c.getContext('2d');
 const fbl_img = new Image();
@@ -52,7 +52,7 @@ function changeBackgroundID(){
 	});
 };
 
-/* Setting of background template */
+// Setting of background template 
 function updateBackground(obj){
 	canvasID = obj.id.split('-').slice(0, 1);
 
@@ -83,7 +83,7 @@ function updateBackgroundLayer(canvasID){
 	eval(canvasID + '_ctx').drawImage(eval(canvasID + '_img'), 0, 0);
 };
 
-/* Choice of font template */
+// Choice of font template 
 const fntl_c = $('#fntl')[0];
 const fntl_ctx = fntl_c.getContext('2d');
 
@@ -96,6 +96,8 @@ function updateFont(){
 	shadowY = '0';
 	shadowRadius = '0';
 	shadowOpacity = '0';
+	textX = 0;
+	textY = 0;
 
 	if ($('#fntl-color')[0].value != ''){
 		color = $('#fntl-color')[0].value;
@@ -112,6 +114,12 @@ function updateFont(){
 	if ($('#fntl-shadow-opacity')[0].value != ''){
 		shadowOpacity = $('#fntl-shadow-opacity')[0].value;
 	};
+	if ($('#fntl-x')[0].value != ''){
+		textX = parseInt($('#fntl-x')[0].value);
+	};
+	if ($('#fntl-y')[0].value != ''){
+		textY = parseInt($('#fntl-y')[0].value);
+	};
 
 	shadowOpacity = String(shadowOpacity / 100);
 	
@@ -125,13 +133,14 @@ function updateFont(){
 		fntl_ctx.textAlign = "center";
 	    fntl_ctx.font = size + 'px ' + fontID;
 	    fntl_ctx.fillStyle = color;
-	    fntl_ctx.fillText(text, 500, 500 + size / 4);
+	    fntl_ctx.fillText(text, 500 + textX, 500 + size / fontCoef - textY);
 	};
 	
 	fntl_ctx.filter = 'opacity(' + opacity + '%)' + 'drop-shadow(' + shadowX + 'px ' + shadowY + 'px ' + shadowRadius + 'px rgba(0, 0, 0, ' + shadowOpacity + '))';
+	delDefContent();
 };
 
-/* Choice of filter template */
+// Choice of filter template 
 const fltrl_c = $('#fltrl')[0];
 const fltrl_ctx = fltrl_c.getContext('2d');
 const fltrl_img = new Image();
@@ -144,7 +153,7 @@ function changeFilterID(){
 	updateFilter();
 };
 
-/* Setting of filter template */
+// Setting of filter template 
 function updateFilter(){
 	hueRotate = $('#fltrl-hue')[0].value;
 	brightness = $('#fltrl-brightness')[0].value;
@@ -159,7 +168,7 @@ function updateFilter(){
 	updateValueShower('fltrl-opacity');
 };
 
-/* Saving result */
+// Saving result 
 const res_c = document.createElement('canvas');
 res_c.setAttribute('width', '1000px');
 res_c.setAttribute('height', '1000px');
@@ -211,13 +220,66 @@ function getImage(canvas) {
   return image;
 };
 
-/* Reset buttons */
+// Reset buttons 
 function resetValue(obj){
 	$('#' + obj.id.replace('-reset', ''))[0].value = $('#' + obj.id.replace('-reset', ''))[0].getAttribute('data-default-value');
 	eval($('#' + obj.id.replace('-reset', ''))[0].getAttribute('onmousemove').replace('this', '$("#" + obj.id.replace("-reset", ""))[0]'));
 };
 
-/* Value showers */
+// Value showers 
 function updateValueShower(name){
 	$('#' + name + '-shower')[0].innerHTML = $('#' + name)[0].value;
+};
+
+// Outline function 
+bgChosen = '';
+filterChosen = '';
+fontChosen = '';
+
+function addOutline(obj, slide){
+	if (slide == 'bg' && bgChosen != '') {
+		$('#' + bgChosen.id).css({'outline': '0 solid #fff', 'outline-offset': '0'});
+	}
+	if (slide == 'filter' && filterChosen != '') {
+		$('#' + filterChosen.id).css({'outline': '0 solid #fff', 'outline-offset': '0'});
+	}
+	if (slide == 'font' && fontChosen != '') {
+		$('#' + fontChosen.id).css({'outline': '0 solid #fff', 'outline-offset': '0'});
+	};
+
+	$(obj).css({'outline': '4px solid #fff', 'outline-offset': '-4px'});
+
+	if (slide == 'bg') {
+		bgChosen = obj;
+		showSaveButton();
+	}
+	if (slide == 'filter') {
+		filterChosen = obj;
+		showSaveButton();
+	}
+	if (slide == 'font') {
+		fontChosen = obj;
+	};
+};
+
+// Delete default content 'lll' 
+function delDefContent() {
+	if ($('#fntl-text')[0].value != '' && fontChosen != '') {
+		$('#default-content')[0].innerHTML = '';
+		showSaveButton();
+	}
+	else {
+		$('#default-content')[0].innerHTML = 'lll';
+		if (bgChosen == '' && filterChosen == '' && (fontChosen == '' || $('#fntl-text')[0].value == '')){
+			hideSaveButton();
+		};
+	};
+};
+
+// Show/hide save button
+function showSaveButton() {
+	$('#save').css({'display': 'block'});
+};
+function hideSaveButton() {
+	$('#save').css({'display': 'none'});
 };
