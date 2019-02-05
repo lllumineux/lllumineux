@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
 	<meta http-equiv="content-type" content="text/html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +8,11 @@
 	<title>lllumineux</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="templates/fonts/fonts.css">
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 	<script type="text/javascript">
 		var delDefContent = false;
 		var maxWidth = 500;
@@ -26,277 +25,183 @@
 	</script>
 </head>
 <body class="index">
-	<div class="d-flex flex-column justify-content-between section" id="first-section">
-		<div class="d-flex justify-content-end current-lang">
-			<p class="current-lang-content">ru</p>
+	<div class="first-display">
+		<div class="header">
+			<span class="current-lang">ru</span>
 		</div>
-		<div class="d-flex justify-content-center site-name">
-			<h1 class="site-name-content">lllumineux</h1>
+		<div class="content">
+			<h1 class="main-title">lllumineux</h1>
 		</div>
-		<div class="d-flex justify-content-center scroll-icon">
-			<img class="scroll-icon-content" src="img/index/icons/scroll.png">
+		<div class="footer">
+			<span class="scroll-advice">
+				<img class="scroll-icon" src="img/index/icons/scroll.png">
+			</span>
 		</div>
 	</div>
-	<div class="d-flex align-items-center section" id="second-section">
-		<div class="d-flex justify-content-between align-items-start editor">
-			<div class="fin-pic">
-				<div class="d-flex justify-content-center align-items-center fin-pic__element" id="default">
-					<p id="default-content">lll</p>
-				</div>
-				<canvas class="fin-pic__element" id="fbl" width="1000px" height="1000px"></canvas>
-				<canvas class="fin-pic__element" id="sbl" width="1000px" height="1000px"></canvas>
-				<canvas class="fin-pic__element" id="tbl" width="1000px" height="1000px"></canvas>
-				<canvas class="fin-pic__element" id="fntl" width="1000px" height="1000px"></canvas>
-				<canvas class="fin-pic__element" id="fltrl" width="1000px" height="1000px"></canvas>
-				<div class="d-flex justify-content-end align-items-end fin-pic__element">
-					<div class="cursor-pointer" id="save" onclick="saveCurrentPicture();">
-						<img id="save-content" src="img/index/icons/save.png">
+	<div class="second-display">
+		<div class="content">
+			<div class="edit-bar">
+				<div class="picture-layers">
+					<div class="layer default-layer">
+						<span class="short-title">lll</span>
+					</div>
+					<canvas class="layer" id="fbl" width="1000px" height="1000px"></canvas>
+					<canvas class="layer" id="sbl" width="1000px" height="1000px"></canvas>
+					<canvas class="layer" id="tbl" width="1000px" height="1000px"></canvas>
+					<canvas class="layer" id="fntl" width="1000px" height="1000px"></canvas>
+					<canvas class="layer" id="fltrl" width="1000px" height="1000px"></canvas>
+					<div class="layer save-layer">
+						<img class="save-icon" onclick="saveCurrentPicture();" src="img/index/icons/save.png">
 					</div>
 				</div>
-			</div>
-			<div class="slider">
-				<div id="ca-container" class="ca-container">
-					<div class="ca-wrapper">
-						<div class="ca-item ca-item-1" data-slideName="фон">
-							<div class="d-flex ca-item-wrapper">
-								<div class="d-flex justify-content-center align-items-center settings-wrapper">
-									<div class="d-flex flex-column justify-content-between settings">
-										<div class="d-flex align-items-center settings__element">
-											<a href="javascript:void(0);" class="reset-btn" id="fbl-hue-reset" onclick="resetValue(this);">
-												<img class="reset-btn-content" src="img/index/icons/reset.png">
-											</a>
-											<input type="range" id="fbl-hue" onmousemove="updateBackground(this);" min="-180" max="180" value="0" data-default-value="0">
-											<p class="value-shower" id="fbl-hue-shower">0</p>
+				<div class="slider">
+					<div id="ca-container" class="ca-container">
+						<div class="ca-wrapper">
+							<div class="ca-item ca-item-1" data-slideName="фон">
+								<div class="ca-item-content">
+									<div class="settings-wrap">
+										<div class="settings">
+											<div class="range-row">
+												<img class="reset-btn" id="fbl-hue-reset" src="img/index/icons/reset.png" onclick="resetValue(this);">
+												<input type="range" id="fbl-hue" onchange="updateBackground(this);" onmousemove="updateBackground(this);" min="-180" max="180" value="0" data-default-value="0">
+												<span class="value-shower" id="fbl-hue-shower">0</span>
+											</div>
+											<div class="range-row">
+												<img class="reset-btn" id="sbl-hue-reset" src="img/index/icons/reset.png" onclick="resetValue(this);">
+												<input type="range" id="sbl-hue" onchange="updateBackground(this);" onmousemove="updateBackground(this);" min="-180" max="180" value="0" data-default-value="0">
+												<span class="value-shower" id="sbl-hue-shower">0</span>
+											</div>
+											<div class="range-row">
+												<img class="reset-btn" id="tbl-hue-reset" src="img/index/icons/reset.png" onclick="resetValue(this);">
+												<input type="range" id="tbl-hue" onchange="updateBackground(this);" onmousemove="updateBackground(this);" min="-180" max="180" value="0" data-default-value="0">
+												<span class="value-shower" id="tbl-hue-shower">0</span>
+											</div>
+											<div class="range-row">
+												<img class="reset-btn" id="abl-brightness-reset" src="img/index/icons/reset.png" onclick="resetValue(this);">
+												<input type="range" id="abl-brightness" onchange="updateBackground(this);" onmousemove="updateBackground(this);" min="0" max="1000" value="100" data-default-value="100">
+												<span class="value-shower" id="abl-brightness-shower">100</span>
+											</div>
 										</div>
-										<div class="d-flex align-items-center settings__element">
-											<a href="javascript:void(0);" class="reset-btn" id="sbl-hue-reset" onclick="resetValue(this);">
-												<img class="reset-btn-content" src="img/index/icons/reset.png">
-											</a>
-											<input type="range" id="sbl-hue" onmousemove="updateBackground(this);" min="-180" max="180" value="0" data-default-value="0">
-											<p class="value-shower" id="sbl-hue-shower">0</p>
-										</div>
-										<div class="d-flex align-items-center settings__element">
-											<a href="javascript:void(0);" class="reset-btn" id="tbl-hue-reset" onclick="resetValue(this);">
-												<img class="reset-btn-content" src="img/index/icons/reset.png">
-											</a>
-											<input type="range" id="tbl-hue" onmousemove="updateBackground(this);" min="-180" max="180" value="0" data-default-value="0">
-											<p class="value-shower" id="tbl-hue-shower">0</p>
-										</div>
-										<div class="d-flex align-items-center settings__element">
-											<a href="javascript:void(0);" class="reset-btn" id="abl-brightness-reset" onclick="resetValue(this);">
-												<img class="reset-btn-content" src="img/index/icons/reset.png">
-											</a>
-											<input type="range" id="abl-brightness" onmousemove="updateBackground(this);" min="0" max="1000" value="100" data-default-value="100">
-											<p class="value-shower" id="abl-brightness-shower">100</p>
+									</div>
+									<div class="gallery-wrap">
+										<div class="gallery">
+											<div class="gallery__element" data-pos="first">
+												<img id="bg-0" src="templates/backgrounds/0/preview.png" onclick="backgroundID = '0';changeBackgroundID();addOutline(this, 'bg');">
+											</div>
+											<div class="gallery__element" data-pos="middle">
+												<img id="bg-1" src="templates/backgrounds/0/preview.png" onclick="backgroundID = '0';changeBackgroundID();addOutline(this, 'bg');">
+											</div>
+											<div class="gallery__element" data-pos="last">
+												<img id="bg-2" src="templates/backgrounds/0/preview.png" onclick="backgroundID = '0';changeBackgroundID();addOutline(this, 'bg');">
+											</div>
 										</div>
 									</div>
 								</div>
-								<div class="gallery-wrapper">
-									<div class="d-flex flex-column align-items-end gallery">
-										<div class="gallery__element-wrapper" data-first="yes">
-											<div class="gallery__element" id="bg-0" onclick="backgroundID = '0';changeBackgroundID();addOutline(this, 'bg');">
-												<img class="gallery__element-content" src="templates/backgrounds/0/preview.png">
+							</div>
+							<div class="ca-item ca-item-2" data-slideName="текст">
+								<div class="ca-item-content">
+									<div class="settings-wrap">
+										<div class="settings">
+											<div class="text-row">
+												<span class="name">текст</span>
+												<div class="args">
+													<input type="text" placeholder="ваш текст" maxlength="20" id="fntl-text" onkeyup="updateFont();">
+												</div>
+											</div>
+											<div class="text-row">
+												<span class="name">цвет</span>
+												<div class="args">
+													<input type="text" placeholder="#fff" maxlength="7" id="fntl-color" onkeyup="updateFont();">
+												</div>
+											</div>
+											<div class="text-row">
+												<span class="name">тень</span>
+												<div class="args">
+													<input type="text" placeholder="0" maxlength="2" id="fntl-shadow-x" data-arg="true" onkeyup="updateFont();">
+													<input type="text" placeholder="0" maxlength="2" id="fntl-shadow-y" data-arg="true" onkeyup="updateFont();">
+													<input type="text" placeholder="0" maxlength="2" id="fntl-shadow-radius" data-arg="true" onkeyup="updateFont();">
+													<input type="text" placeholder="0" maxlength="3" id="fntl-shadow-opacity" data-arg="true" onkeyup="updateFont();">
+												</div>
+											</div>
+											<div class="text-row">
+												<span class="name">расположение</span>
+												<div class="args">
+													<input type="text" placeholder="x" maxlength="3" id="fntl-x" data-arg="true" onkeyup="updateFont();">
+													<input type="text" placeholder="y" maxlength="3" id="fntl-y" data-arg="true" onkeyup="updateFont();">
+												</div>
+											</div>
+											<div class="text-row">
+												<span class="name">прозрачность</span>
+												<div class="args">
+													<input type="range" onchange="updateFont();" onmousemove="updateFont();" id="fntl-opacity" min="0" max="100" value="100">
+												</div>
 											</div>
 										</div>
-										<div class="gallery__element-wrapper">
-											<div class="gallery__element" id="bg-1" onclick="backgroundID = '0';changeBackgroundID();addOutline(this, 'bg');">
-												<img class="gallery__element-content" src="templates/backgrounds/0/preview.png">
+									</div>
+									<div class="gallery-wrap">
+										<div class="gallery">
+											<div class="gallery__element" data-pos="first">
+												<img id="font-0" src="templates/fonts/0/preview.png" onclick="fontID = 'zero';fontCoef = 3.5;addOutline(this, 'font');updateFont();">
+											</div>
+											<div class="gallery__element" data-pos="middle">
+												<img id="font-1" src="templates/fonts/0/preview.png" onclick="fontID = 'zero';fontCoef = 3.5;addOutline(this, 'font');updateFont();">
+											</div>
+											<div class="gallery__element" data-pos="last">
+												<img id="font-2" src="templates/fonts/0/preview.png" onclick="fontID = 'zero';fontCoef = 3.5;addOutline(this, 'font');updateFont();">
 											</div>
 										</div>
-										<div class="gallery__element-wrapper">
-											<div class="gallery__element" id="bg-2" onclick="backgroundID = '0';changeBackgroundID();addOutline(this, 'bg');">
-												<img class="gallery__element-content" src="templates/backgrounds/0/preview.png">
+									</div>
+								</div>
+							</div>
+							<div class="ca-item ca-item-3" data-slideName="фильтр">
+								<div class="ca-item-content">
+									<div class="settings-wrap">
+										<div class="settings">
+											<div class="range-row">
+												<img class="reset-btn" id="fltrl-hue-reset" src="img/index/icons/reset.png" onclick="resetValue(this);">
+												<input type="range" id="fltrl-hue" onchange="updateFilter();" onmousemove="updateFilter();" min="-180" max="180" value="0" data-default-value="0">
+												<span class="value-shower" id="fltrl-hue-shower">0</span>
+											</div>
+											<div class="range-row">
+												<img class="reset-btn" id="fltrl-brightness-reset" src="img/index/icons/reset.png" onclick="resetValue(this);">
+												<input type="range" id="fltrl-brightness" onchange="updateFilter();" onmousemove="updateFilter();" min="0" max="1000" value="100" data-default-value="100">
+												<span class="value-shower" id="fltrl-brightness-shower">100</span>
+											</div>
+											<div class="range-row">
+												<img class="reset-btn" id="fltrl-opacity-reset" src="img/index/icons/reset.png" onclick="resetValue(this);">
+												<input type="range" id="fltrl-opacity" onchange="updateFilter();" onmousemove="updateFilter();" min="0" max="100" value="100" data-default-value="100">
+												<span class="value-shower" id="fltrl-opacity-shower">100</span>
 											</div>
 										</div>
-										<div class="gallery__element-wrapper">
-											<div class="gallery__element" id="bg-2" onclick="backgroundID = '0';changeBackgroundID();addOutline(this, 'bg');">
-												<img class="gallery__element-content" src="templates/backgrounds/0/preview.png">
+									</div>
+									<div class="gallery-wrap">
+										<div class="gallery">
+											<div class="gallery__element" data-pos="first">
+												<img id="filter-0" src="templates/filters/0/preview.png" onclick="filterID = '0';changeFilterID();addOutline(this, 'filter');">
 											</div>
-										</div>
-										<div class="gallery__element-wrapper">
-											<div class="gallery__element" id="bg-2" onclick="backgroundID = '0';changeBackgroundID();addOutline(this, 'bg');">
-												<img class="gallery__element-content" src="templates/backgrounds/0/preview.png">
+											<div class="gallery__element" data-pos="middle">
+												<img id="filter-1" src="templates/filters/0/preview.png" onclick="filterID = '0';changeFilterID();addOutline(this, 'filter');">
 											</div>
-										</div>
-										<div class="gallery__element-wrapper">
-											<div class="gallery__element" id="bg-2" onclick="backgroundID = '0';changeBackgroundID();addOutline(this, 'bg');">
-												<img class="gallery__element-content" src="templates/backgrounds/0/preview.png">
-											</div>
-										</div>
-										<div class="gallery__element-wrapper" data-last="yes">
-											<div class="gallery__element" id="bg-2" onclick="backgroundID = '0';changeBackgroundID();addOutline(this, 'bg');">
-												<img class="gallery__element-content" src="templates/backgrounds/0/preview.png">
+											<div class="gallery__element" data-pos="last">
+												<img id="filter-2" src="templates/filters/0/preview.png" onclick="filterID = '0';changeFilterID();addOutline(this, 'filter');">
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="ca-item ca-item-2" data-slideName="текст">
-							<div class="d-flex ca-item-wrapper">
-								<div class="d-flex justify-content-center align-items-center settings-wrapper">
-									<div class="d-flex flex-column justify-content-between settings">
-										<div class="d-flex justify-content-between align-items-center settings__element">
-											<div class="setting-name-wrapper">
-												<div class="setting-name">
-													<p class="setting-name-content">Текст</p>
-												</div>
-											</div>
-											<div class="setting-value-wrapper">
-												<div class="d-flex setting-value">
-													<div class="setting-value-content">
-														<input type="text" placeholder="Текст" maxlength="20" id="fntl-text" onkeyup="updateFont();">
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex justify-content-between align-items-center settings__element">
-											<div class="setting-name-wrapper">
-												<div class="setting-name">
-													<p class="setting-name-content">Цвет</p>
-												</div>
-											</div>
-											<div class="setting-value-wrapper">
-												<div class="d-flex setting-value">
-													<div class="setting-value-content">
-														<input type="text" placeholder="#fff" maxlength="7" id="fntl-color" onkeyup="updateFont();">
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex justify-content-between align-items-center settings__element">
-											<div class="setting-name-wrapper">
-												<div class="setting-name">
-													<p class="setting-name-content">Прозрачность</p>
-												</div>
-											</div>
-											<div class="setting-value-wrapper">
-												<div class="d-flex setting-value">
-													<div class="setting-value-content">
-														<input type="range" onmousemove="updateFont();" id="fntl-opacity" min="0" max="100" value="100">
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex justify-content-between align-items-center settings__element">
-											<div class="setting-name-wrapper">
-												<div class="setting-name">
-													<p class="setting-name-content">Тень</p>
-												</div>
-											</div>
-											<div class="setting-value-wrapper">
-												<div class="d-flex setting-value">
-													<div class="d-flex setting-value-content">
-														<div class="d-flex">
-															<input type="text" placeholder="0" maxlength="2" id="fntl-shadow-x" onkeyup="updateFont();">
-															<input type="text" placeholder="0" maxlength="2" id="fntl-shadow-y" onkeyup="updateFont();">
-														</div>
-														<div class="d-flex">
-															<input type="text" placeholder="0" maxlength="2" id="fntl-shadow-radius" onkeyup="updateFont();">
-															<input type="text" placeholder="0" maxlength="3" id="fntl-shadow-opacity" onkeyup="updateFont();">
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex justify-content-between align-items-center settings__element">
-											<div class="setting-name-wrapper">
-												<div class="setting-name">
-													<p class="setting-name-content">Расположение</p>
-												</div>
-											</div>
-											<div class="setting-value-wrapper">
-												<div class="d-flex setting-value">
-													<div class="d-flex setting-value-content">
-														<input type="text" placeholder="x" maxlength="3" id="fntl-x" onkeyup="updateFont();">
-														<input type="text" placeholder="y" maxlength="3" id="fntl-y" onkeyup="updateFont();">
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
+						<div class="ca-nav-wrap">
+							<div class="ca-nav">
+								<div class="ca-nav-btns">
+									<span class="ca-nav-prev">
+										<img src="img/index/icons/prev.png">
+									</span>
+									<span class="ca-nav-next">
+										<img src="img/index/icons/next.png">
+									</span>
 								</div>
-								<div class="gallery-wrapper">
-									<div class="d-flex flex-column align-items-end gallery">
-										<div class="gallery__element-wrapper">
-											<div class="gallery__element" id="font-0" onclick="fontID = 'zero';fontCoef = 3.5;addOutline(this, 'font');updateFont();">
-												<img class="gallery__element-content" src="templates/fonts/0/preview.png">
-											</div>
-										</div>
-										<div class="gallery__element-wrapper">
-											<div class="gallery__element" id="font-1" onclick="fontID = 'zero';fontCoef = 3.5;addOutline(this, 'font');updateFont();">
-												<img class="gallery__element-content" src="templates/fonts/0/preview.png">
-											</div>
-										</div>
-										<div class="gallery__element-wrapper" data-last="yes">
-											<div class="gallery__element" id="font-2" onclick="fontID = 'zero';fontCoef = 3.5;addOutline(this, 'font');updateFont();">
-												<img class="gallery__element-content" src="templates/fonts/0/preview.png">
-											</div>
-										</div>
-									</div>
-								</div>
+								<div class="ca-nav-text">фон</div>
 							</div>
-						</div>
-						<div class="ca-item ca-item-3" data-slideName="фильтр">
-							<div class="d-flex ca-item-wrapper">
-								<div class="d-flex justify-content-center align-items-center settings-wrapper">
-									<div class="d-flex flex-column justify-content-between settings">
-										<div class="d-flex align-items-center settings__element">
-											<a href="javascript:void(0);" class="reset-btn" id="fltrl-hue-reset" onclick="resetValue(this);">
-												<img class="reset-btn-content" src="img/index/icons/reset.png">
-											</a>
-											<input type="range" id="fltrl-hue" onmousemove="updateFilter();" min="-180" max="180" value="0" data-default-value="0">
-											<p class="value-shower" id="fltrl-hue-shower">0</p>
-										</div>
-										<div class="d-flex align-items-center settings__element">
-											<a href="javascript:void(0);" class="reset-btn" id="fltrl-hue-reset" onclick="resetValue(this);">
-												<img class="reset-btn-content" src="img/index/icons/reset.png">
-											</a>
-											<input type="range" id="fltrl-brightness" onmousemove="updateFilter();" min="0" max="1000" value="100" data-default-value="100">
-											<p class="value-shower" id="fltrl-brightness-shower">100</p>
-										</div>
-										<div class="d-flex align-items-center settings__element">
-											<a href="javascript:void(0);" class="reset-btn" id="fltrl-opacity-reset" onclick="resetValue(this);">
-												<img class="reset-btn-content" src="img/index/icons/reset.png">
-											</a>
-											<input type="range" id="fltrl-opacity" onmousemove="updateFilter();" min="0" max="100" value="100" data-default-value="100">
-											<p class="value-shower" id="fltrl-opacity-shower">100</p>
-										</div>
-									</div>
-								</div>
-								<div class="gallery-wrapper">
-									<div class="d-flex flex-column align-items-end gallery">
-										<div class="gallery__element-wrapper">
-											<div class="gallery__element" id="filter-0" onclick="filterID = '0';changeFilterID();addOutline(this, 'filter');">
-												<img class="gallery__element-content" src="templates/filters/0/preview.png">
-											</div>
-										</div>
-										<div class="gallery__element-wrapper">
-											<div class="gallery__element" id="filter-1" onclick="filterID = '0';changeFilterID();addOutline(this, 'filter');">
-												<img class="gallery__element-content" src="templates/filters/0/preview.png">
-											</div>
-										</div>
-										<div class="gallery__element-wrapper" data-last="yes">
-											<div class="gallery__element" id="filter-2" onclick="filterID = '0';changeFilterID();addOutline(this, 'filter');">
-												<img class="gallery__element-content" src="templates/filters/0/preview.png">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="d-flex justify-content-between align-items-end ca-nav">
-						<div class="ca-nav-btns">
-							<span class="ca-nav-prev">
-								<img src="img/index/icons/prev.png">
-							</span>
-							<span class="ca-nav-next">
-								<img src="img/index/icons/next.png">
-							</span>
-						</div>
-						<div class="ca-nav-text">
-							<p id="slide-name">фон</p>
 						</div>
 					</div>
 				</div>
@@ -304,13 +209,19 @@
 		</div>
 	</div>
 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 	<script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript">
 		$('#ca-container').contentcarousel();
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 1) {
+				$('.scroll-icon').css({'display': 'none'});
+				$('.main-title').css({'margin': '0 0 53px 0'});
+			};
+		});
 	</script>
 </body>
 </html>

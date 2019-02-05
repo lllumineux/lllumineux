@@ -99,26 +99,44 @@ function updateFont(){
 	textX = 0;
 	textY = 0;
 
-	if ($('#fntl-color')[0].value != ''){
+	if ($('#fntl-color')[0].value[0] == '#'){
 		color = $('#fntl-color')[0].value;
+	}
+	else{
+		color = '#fff';
+		$('#fntl-color')[0].value = '';
 	};
 	if ($('#fntl-shadow-x')[0].value != ''){
-		shadowX = $('#fntl-shadow-x')[0].value;
+		shadowX = $('#fntl-shadow-x')[0].value.replace(/\D+/g,'');
+		$('#fntl-shadow-x')[0].value = $('#fntl-shadow-x')[0].value.replace(/\D+/g,'');
 	};
 	if ($('#fntl-shadow-y')[0].value != ''){
-		shadowY = $('#fntl-shadow-y')[0].value;
+		shadowY = $('#fntl-shadow-y')[0].value.replace(/\D+/g,'');
+		$('#fntl-shadow-y')[0].value = $('#fntl-shadow-y')[0].value.replace(/\D+/g,'');
 	};
 	if ($('#fntl-shadow-radius')[0].value != ''){
-		shadowRadius = $('#fntl-shadow-radius')[0].value;
+		shadowRadius = $('#fntl-shadow-radius')[0].value.replace(/\D+/g,'');
+		$('#fntl-shadow-radius')[0].value = $('#fntl-shadow-radius')[0].value.replace(/\D+/g,'');
 	};
 	if ($('#fntl-shadow-opacity')[0].value != ''){
-		shadowOpacity = $('#fntl-shadow-opacity')[0].value;
+		shadowOpacity = $('#fntl-shadow-opacity')[0].value.replace(/\D+/g,'');
+		$('#fntl-shadow-opacity')[0].value = $('#fntl-shadow-opacity')[0].value.replace(/\D+/g,'');
 	};
 	if ($('#fntl-x')[0].value != ''){
-		textX = parseInt($('#fntl-x')[0].value);
+		textX = parseInt($('#fntl-x')[0].value.replace(/\D+/g,''));
+		$('#fntl-x')[0].value = $('#fntl-x')[0].value.replace(/\D+/g,'');
+	}
+	else{
+		textX = 0;
+		$('#fntl-x')[0].value = '';
 	};
 	if ($('#fntl-y')[0].value != ''){
-		textY = parseInt($('#fntl-y')[0].value);
+		textY = parseInt($('#fntl-y')[0].value.replace(/\D+/g,''));
+		$('#fntl-y')[0].value = $('#fntl-y')[0].value.replace(/\D+/g,'');
+	}
+	else{
+		textY = 0;
+		$('#fntl-y')[0].value = '';
 	};
 
 	shadowOpacity = String(shadowOpacity / 100);
@@ -265,11 +283,11 @@ function addOutline(obj, slide){
 // Delete default content 'lll' 
 function delDefContent() {
 	if ($('#fntl-text')[0].value != '' && fontChosen != '') {
-		$('#default-content')[0].innerHTML = '';
+		$('.short-title')[0].innerHTML = '';
 		showSaveButton();
 	}
 	else {
-		$('#default-content')[0].innerHTML = 'lll';
+		$('.short-title')[0].innerHTML = 'lll';
 		if (bgChosen == '' && filterChosen == '' && (fontChosen == '' || $('#fntl-text')[0].value == '')){
 			hideSaveButton();
 		};
@@ -278,8 +296,8 @@ function delDefContent() {
 
 // Show/hide save button
 function showSaveButton() {
-	$('#save').css({'display': 'block'});
+	$('.save-icon').css({'display': 'block'});
 };
 function hideSaveButton() {
-	$('#save').css({'display': 'none'});
+	$('.save-icon').css({'display': 'none'});
 };

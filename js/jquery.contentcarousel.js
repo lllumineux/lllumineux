@@ -38,7 +38,7 @@
 						if( ( dir === 1 && $item.position().left < - idxClicked * cache.itemW * factor ) || ( dir === -1 && $item.position().left > ( ( cache.totalItems - 1 - idxClicked ) * cache.itemW * factor ) ) ) {
 							// remove the item that was cloned
 							$item.remove();
-							$('#slide-name')[0].innerHTML = $wrapper.find('div.ca-item').attr('data-slideName');
+							$('.ca-nav-text')[0].innerHTML = $wrapper.find('div.ca-item').attr('data-slideName');
 						}						
 						cache.isAnimating	= false;
 					});
