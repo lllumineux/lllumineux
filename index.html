@@ -22,35 +22,36 @@
 		var backgroundID = '';
 		var filterID = '';
 		var fontID = '';
+		var size_changed = 0;
 	</script>
 </head>
 <body class="index">
 	<div class="first-display">
-		<div class="header">
+		<div class="first-display__header">
 			<span class="current-lang">ru</span>
 		</div>
-		<div class="content">
+		<div class="first-display__content">
 			<h1 class="main-title">lllumineux</h1>
 		</div>
-		<div class="footer">
-			<span class="scroll-advice">
-				<img class="scroll-icon" src="img/index/icons/scroll.png">
-			</span>
+		<div class="first-display__footer">
+			<img class="scroll-icon" src="img/index/icons/scroll.png">
 		</div>
 	</div>
 	<div class="second-display">
-		<div class="content">
+		<div class="second-display__header">
+		</div>
+		<div class="second-display__content">
 			<div class="edit-bar">
-				<div class="picture-layers">
-					<div class="layer default-layer">
+				<div class="all-layers">
+					<div class="all-layers-layer default-layer">
 						<span class="short-title">lll</span>
 					</div>
-					<canvas class="layer" id="fbl" width="1000px" height="1000px"></canvas>
-					<canvas class="layer" id="sbl" width="1000px" height="1000px"></canvas>
-					<canvas class="layer" id="tbl" width="1000px" height="1000px"></canvas>
-					<canvas class="layer" id="fntl" width="1000px" height="1000px"></canvas>
-					<canvas class="layer" id="fltrl" width="1000px" height="1000px"></canvas>
-					<div class="layer save-layer">
+					<canvas class="all-layers-layer" id="fbl" width="1000px" height="1000px"></canvas>
+					<canvas class="all-layers-layer" id="sbl" width="1000px" height="1000px"></canvas>
+					<canvas class="all-layers-layer" id="tbl" width="1000px" height="1000px"></canvas>
+					<canvas class="all-layers-layer" id="fntl" width="1000px" height="1000px"></canvas>
+					<canvas class="all-layers-layer" id="fltrl" width="1000px" height="1000px"></canvas>
+					<div class="all-layers-layer save-layer">
 						<img class="save-icon" onclick="saveCurrentPicture();" src="img/index/icons/save.png">
 					</div>
 				</div>
@@ -105,7 +106,7 @@
 											<div class="text-row">
 												<span class="name">текст</span>
 												<div class="args">
-													<input type="text" placeholder="ваш текст" maxlength="20" id="fntl-text" onkeyup="updateFont();">
+													<input type="text" placeholder="ваш текст" maxlength="20" id="fntl-text" onkeyup="size_changed = 0;updateFont();">
 												</div>
 											</div>
 											<div class="text-row">
@@ -115,19 +116,26 @@
 												</div>
 											</div>
 											<div class="text-row">
-												<span class="name">тень</span>
+												<span class="name">размер</span>
 												<div class="args">
-													<input type="text" placeholder="0" maxlength="2" id="fntl-shadow-x" data-arg="true" onkeyup="updateFont();">
-													<input type="text" placeholder="0" maxlength="2" id="fntl-shadow-y" data-arg="true" onkeyup="updateFont();">
-													<input type="text" placeholder="0" maxlength="2" id="fntl-shadow-radius" data-arg="true" onkeyup="updateFont();">
-													<input type="text" placeholder="0" maxlength="3" id="fntl-shadow-opacity" data-arg="true" onkeyup="updateFont();">
+													<span class="fntl-size" id="fntl-size-lower" onclick="size_changed -= 5;updateFont();">-</span>
+													<span class="fntl-size" id="fntl-size-upper" onclick="if(size_changed < 0){size_changed += 5;};updateFont();">+</span>
 												</div>
 											</div>
 											<div class="text-row">
 												<span class="name">расположение</span>
 												<div class="args">
-													<input type="text" placeholder="x" maxlength="3" id="fntl-x" data-arg="true" onkeyup="updateFont();">
-													<input type="text" placeholder="y" maxlength="3" id="fntl-y" data-arg="true" onkeyup="updateFont();">
+													<input type="text" placeholder="x" maxlength="3" id="fntl-x" class="num-arg" onkeyup="updateFont();">
+													<input type="text" placeholder="y" maxlength="3" id="fntl-y" class="num-arg" onkeyup="updateFont();">
+												</div>
+											</div>
+											<div class="text-row">
+												<span class="name">тень</span>
+												<div class="args">
+													<input type="text" placeholder="0" maxlength="2" id="fntl-shadow-x" class="num-arg" onkeyup="updateFont();">
+													<input type="text" placeholder="0" maxlength="2" id="fntl-shadow-y" class="num-arg" onkeyup="updateFont();">
+													<input type="text" placeholder="0" maxlength="2" id="fntl-shadow-radius" class="num-arg" onkeyup="updateFont();">
+													<input type="text" placeholder="0" maxlength="3" id="fntl-shadow-opacity" class="num-arg" onkeyup="updateFont();">
 												</div>
 											</div>
 											<div class="text-row">
@@ -207,6 +215,8 @@
 				</div>
 			</div>
 		</div>
+		<div class="second-display__footer">
+		</div>
 	</div>
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" crossorigin="anonymous"></script>
@@ -219,7 +229,7 @@
 		$(window).scroll(function () {
 			if ($(this).scrollTop() > 1) {
 				$('.scroll-icon').css({'display': 'none'});
-				$('.main-title').css({'margin': '0 0 53px 0'});
+				$('.main-title').css({'margin': '0 0 49px 0'});
 			};
 		});
 	</script>

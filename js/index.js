@@ -149,7 +149,7 @@ function updateFont(){
 
 		fntl_ctx.clearRect(0, 0, fntl_c.width, fntl_c.height);
 		fntl_ctx.textAlign = "center";
-	    fntl_ctx.font = size + 'px ' + fontID;
+	    fntl_ctx.font = size + size_changed + 'px ' + fontID;
 	    fntl_ctx.fillStyle = color;
 	    fntl_ctx.fillText(text, 500 + textX, 500 + size / fontCoef - textY);
 	};
