@@ -2,3 +2,35 @@
     font-family: 'zero';
     src: url('0/font.otf');
 }
+@font-face {
+    font-family: 'first';
+    src: url('1/font.otf');
+}
+@font-face {
+    font-family: 'second';
+    src: url('2/font.otf');
+}
+@font-face {
+    font-family: 'third';
+    src: url('3/font.otf');
+}
+@font-face {
+    font-family: 'fourth';
+    src: url('4/font.otf');
+}
+@font-face {
+    font-family: 'fifth';
+    src: url('5/font.otf');
+}
+@font-face {
+    font-family: 'sixth';
+    src: url('6/font.otf');
+}
+@font-face {
+    font-family: 'seventh';
+    src: url('7/font.otf');
+}
+@font-face {
+    font-family: 'eighth';
+    src: url('8/font.otf');
+}

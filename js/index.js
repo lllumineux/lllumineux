@@ -123,16 +123,16 @@ function updateFont(){
 		$('#fntl-shadow-opacity')[0].value = $('#fntl-shadow-opacity')[0].value.replace(/\D+/g,'');
 	};
 	if ($('#fntl-x')[0].value != ''){
-		textX = parseInt($('#fntl-x')[0].value.replace(/\D+/g,''));
-		$('#fntl-x')[0].value = $('#fntl-x')[0].value.replace(/\D+/g,'');
+		textX = parseInt($('#fntl-x')[0].value.replace(/[-]\D+/g,''));
+		$('#fntl-x')[0].value = $('#fntl-x')[0].value.replace(/[-]\D+/g,'');
 	}
 	else{
 		textX = 0;
 		$('#fntl-x')[0].value = '';
 	};
 	if ($('#fntl-y')[0].value != ''){
-		textY = parseInt($('#fntl-y')[0].value.replace(/\D+/g,''));
-		$('#fntl-y')[0].value = $('#fntl-y')[0].value.replace(/\D+/g,'');
+		textY = parseInt($('#fntl-y')[0].value.replace(/[-]\D+/g,''));
+		$('#fntl-y')[0].value = $('#fntl-y')[0].value.replace(/[-]\D+/g,'');
 	}
 	else{
 		textY = 0;
