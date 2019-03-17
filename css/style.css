@@ -41,6 +41,46 @@ body.index {
 	background: url('../img/index/bg.png') 100% 100% no-repeat;
 	background-size: cover;
 }
+.index-overlay {
+	-webkit-transition: all 0.175s linear;
+	-moz-transition: all 0.175s linear;
+	-o-transition: all 0.175s linear;
+	transition: all 0.175s linear;
+	z-index: -1;
+	position: absolute;
+	background: #000;
+	opacity: 0;
+	max-width: 100vw!important;
+}
+#p_prldr {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right:0;
+	bottom:0;
+	background: #333;
+	z-index: 30;
+}
+.contpre {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	-webkit-justify-content: center;
+	align-items: center;
+	-webkit-align-items: center;
+}
+#p_prldr .gif_anm {
+	position: absolute;
+	background: url(../img/loader.gif) center center no-repeat;
+	background-size: 300px;
+	width: 800px;
+	height: 600px;
+	max-width: 100vw;
+	max-height: 100vh;
+}
 
 /*-------------------- First Display --------------------*/
 .index .first-display {
@@ -112,6 +152,39 @@ body.index {
 	.index .second-display {
 		height: auto;
 	}
+}
+.color-picker-layer {
+	-webkit-transition: all 0.175s linear;
+	-moz-transition: all 0.175s linear;
+	-o-transition: all 0.175s linear;
+	transition: all 0.175s linear;
+	z-index: -1;
+	opacity: 0;
+	position: absolute;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	-webkit-justify-content: center;
+	align-items: center;
+	-webkit-align-items: center;
+}
+#fntl-color{
+	-webkit-transition: all 0.175s linear;
+	-moz-transition: all 0.175s linear;
+	-o-transition: all 0.175s linear;
+	transition: all 0.175s linear;
+	cursor: pointer;
+	color: transparent!important;
+	border-radius: 100px;
+	max-height: 25px;
+	max-width: 25px;
+}
+#fntl-color:hover {
+	opacity: 0.75;
+}
+.fntl-color-picker {
+	max-width: 100vw;
+	max-height: 100vh;
 }
 .index .second-display__content {
 	width: 100%;
@@ -440,6 +513,7 @@ body.index {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 20px;
 	font-weight: 500;
+	width: 175px;
 }
 .text-row .args input.num-arg {
 	max-width: 50px;
@@ -620,4 +694,37 @@ body.index {
 	color: #fff;
 	font-weight: 300;
 	font-size: 15px;
+}
+
+/* Others */
+.font-tests {
+	position: absolute;
+	z-index: -1;
+}
+#test-font-0 {
+	font-family: 'zero'!important;
+}
+#test-font-1 {
+	font-family: 'first'!important;
+}
+#test-font-2 {
+	font-family: 'second'!important;
+}
+#test-font-3 {
+	font-family: 'third'!important;
+}
+#test-font-4 {
+	font-family: 'fourth'!important;
+}
+#test-font-5 {
+	font-family: 'fifth'!important;
+}
+#test-font-6 {
+	font-family: 'sixth'!important;
+}
+#test-font-7 {
+	font-family: 'seventh'!important;
+}
+#test-font-8 {
+	font-family: 'eighth'!important;
 }

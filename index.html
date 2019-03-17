@@ -12,20 +12,36 @@
 	<link rel="stylesheet" type="text/css" href="templates/fonts/fonts.css">
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$(window).on('load', function () {
+		    var $preloader = $('#p_prldr'),
+		        $gif_anm   = $preloader.find('.gif_anm');
+		    $gif_anm.fadeOut();
+		    $preloader.delay(500).fadeOut('slow');
+		});
+	</script>
 
 	<script type="text/javascript">
 		var delDefContent = false;
-		var maxWidth = 500;
-		var maxHeight = 500;
-		var maxSize = 500;
-		var fontCoef = 4;
+		var size_changed = 0;
+
 		var backgroundID = '';
 		var filterID = '';
 		var fontID = '';
-		var size_changed = 0;
+
+		var maxWidth = 750;
+		var maxHeight = 750;
+		var maxSize = 750;
+		var fontCoef = 4;
 	</script>
 </head>
 <body class="index">
+	<div id="p_prldr">
+		<div class="contpre">
+			<span class="gif_anm"></span>
+		</div>
+	</div>
+	<div class="index-overlay" onclick="hideColorPicker();"></div>
 	<div class="first-display">
 		<div class="first-display__header">
 			<span class="current-lang">ru</span>
@@ -38,6 +54,9 @@
 		</div>
 	</div>
 	<div class="second-display">
+		<div class="color-picker-layer">
+			<div id="fntl-color-picker"></div>
+		</div>
 		<div class="second-display__header">
 		</div>
 		<div class="second-display__content">
@@ -51,6 +70,17 @@
 					<canvas class="all-layers-layer" id="tbl" width="1000px" height="1000px"></canvas>
 					<canvas class="all-layers-layer" id="fntl" width="1000px" height="1000px"></canvas>
 					<canvas class="all-layers-layer" id="fltrl" width="1000px" height="1000px"></canvas>
+					<div class="font-tests">
+						<div id="test-font-0">.</div>
+						<div id="test-font-1">.</div>
+						<div id="test-font-2">.</div>
+						<div id="test-font-3">.</div>
+						<div id="test-font-4">.</div>
+						<div id="test-font-5">.</div>
+						<div id="test-font-6">.</div>
+						<div id="test-font-7">.</div>
+						<div id="test-font-8">.</div>
+					</div>
 					<div class="all-layers-layer save-layer">
 						<img class="save-icon" onclick="saveCurrentPicture();" src="img/index/icons/save.png">
 					</div>
@@ -115,13 +145,13 @@
 											<div class="text-row">
 												<span class="name">текст</span>
 												<div class="args">
-													<input type="text" placeholder="ваш текст" maxlength="20" id="fntl-text" onkeyup="size_changed = 0;updateFont();">
+													<input type="text" placeholder="ваш текст" maxlength="15" id="fntl-text" onkeyup="size_changed = 0;updateFont();">
 												</div>
 											</div>
 											<div class="text-row">
 												<span class="name">цвет</span>
 												<div class="args">
-													<input type="text" placeholder="#fff" maxlength="7" id="fntl-color" onkeyup="updateFont();">
+													<input type="text" placeholder="#fff" maxlength="7" id="fntl-color" onfocus="showColorPicker();" onchange="updateFont();">
 												</div>
 											</div>
 											<div class="text-row">
@@ -259,9 +289,13 @@
 	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 	<script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
+	<script type="text/javascript" src="js/farbtastic.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript">
 		$('#ca-container').contentcarousel();
+		$(function () {
+	   		$('#fntl-color-picker').farbtastic('#fntl-color');
+	 	});
 	</script>
 </body>
 </html>

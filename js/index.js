@@ -107,32 +107,42 @@ function updateFont(){
 		$('#fntl-color')[0].value = '';
 	};
 	if ($('#fntl-shadow-x')[0].value != ''){
-		shadowX = $('#fntl-shadow-x')[0].value.replace(/\D+/g,'');
-		$('#fntl-shadow-x')[0].value = $('#fntl-shadow-x')[0].value.replace(/\D+/g,'');
+		shadowX = $('#fntl-shadow-x')[0].value;
+		$('#fntl-shadow-x')[0].value = $('#fntl-shadow-x')[0].value;
 	};
 	if ($('#fntl-shadow-y')[0].value != ''){
-		shadowY = $('#fntl-shadow-y')[0].value.replace(/\D+/g,'');
-		$('#fntl-shadow-y')[0].value = $('#fntl-shadow-y')[0].value.replace(/\D+/g,'');
+		shadowY = $('#fntl-shadow-y')[0].value;
+		$('#fntl-shadow-y')[0].value = $('#fntl-shadow-y')[0].value;
 	};
 	if ($('#fntl-shadow-radius')[0].value != ''){
-		shadowRadius = $('#fntl-shadow-radius')[0].value.replace(/\D+/g,'');
-		$('#fntl-shadow-radius')[0].value = $('#fntl-shadow-radius')[0].value.replace(/\D+/g,'');
+		shadowRadius = $('#fntl-shadow-radius')[0].value;
+		$('#fntl-shadow-radius')[0].value = $('#fntl-shadow-radius')[0].value;
 	};
 	if ($('#fntl-shadow-opacity')[0].value != ''){
-		shadowOpacity = $('#fntl-shadow-opacity')[0].value.replace(/\D+/g,'');
-		$('#fntl-shadow-opacity')[0].value = $('#fntl-shadow-opacity')[0].value.replace(/\D+/g,'');
+		shadowOpacity = $('#fntl-shadow-opacity')[0].value;
+		$('#fntl-shadow-opacity')[0].value = $('#fntl-shadow-opacity')[0].value;
 	};
 	if ($('#fntl-x')[0].value != ''){
-		textX = parseInt($('#fntl-x')[0].value.replace(/[-]\D+/g,''));
-		$('#fntl-x')[0].value = $('#fntl-x')[0].value.replace(/[-]\D+/g,'');
+		if ($('#fntl-x')[0].value == '-') {
+			textX = 0
+		}
+		else {
+			textX = parseInt($('#fntl-x')[0].value);
+			$('#fntl-x')[0].value = $('#fntl-x')[0].value;
+		}
 	}
 	else{
 		textX = 0;
 		$('#fntl-x')[0].value = '';
 	};
 	if ($('#fntl-y')[0].value != ''){
-		textY = parseInt($('#fntl-y')[0].value.replace(/[-]\D+/g,''));
-		$('#fntl-y')[0].value = $('#fntl-y')[0].value.replace(/[-]\D+/g,'');
+		if ($('#fntl-y')[0].value == '-') {
+			textY = 0
+		}
+		else {
+			textY = parseInt($('#fntl-y')[0].value.);
+			$('#fntl-y')[0].value = $('#fntl-y')[0].value;
+		}
 	}
 	else{
 		textY = 0;
@@ -239,22 +249,37 @@ function getImage(canvas) {
 };
 
 // Reset buttons 
-function resetValue(obj){
+function resetValue(obj) {
 	$('#' + obj.id.replace('-reset', ''))[0].value = $('#' + obj.id.replace('-reset', ''))[0].getAttribute('data-default-value');
 	eval($('#' + obj.id.replace('-reset', ''))[0].getAttribute('onmousemove').replace('this', '$("#" + obj.id.replace("-reset", ""))[0]'));
 };
 
 // Value showers 
-function updateValueShower(name){
+function updateValueShower(name) {
 	$('#' + name + '-shower')[0].innerHTML = $('#' + name)[0].value;
 };
+
+// Color picker form
+function showColorPicker() {
+	$('.index-overlay').css({'width': $('.index')[0].clientWidth + 'px', 'height': $('.index')[0].clientHeight + 'px'});
+	$('.index-overlay').css({'z-index': '1', 'opacity': '0.5', 'overflow': 'hidden'});
+	$('.color-picker-layer').css({'z-index': '2', 'opacity': '1', 'overflow': 'hidden'});
+	$('html').css({'overflow': 'hidden'});
+	$('#fntl-color').blur();
+}
+
+function hideColorPicker() {
+	$('.index-overlay').css({'z-index': '-1', 'opacity': '0'});
+	$('.color-picker-layer').css({'z-index': '-1', 'opacity': '0'})
+	$('html').css({'overflow-y': 'auto'});
+}
 
 // Outline function 
 bgChosen = '';
 filterChosen = '';
 fontChosen = '';
 
-function addOutline(obj, slide){
+function addOutline(obj, slide) {
 	if (slide == 'bg' && bgChosen != '') {
 		$('#' + bgChosen.id).css({'outline': '0 solid #fff', 'outline-offset': '0'});
 	}
